@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/tonel 1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.30; 
+  z-index: -1; 
+}
+
+header {
+  background-color: #ece5d3;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+
+header img {
+  width: 150px;
+  height: auto;
+  border-radius: 30%;
+  border-width: 20px;
+  border-color: #552133;
+  opacity: 0.7;
+}
+
+header div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+header h1 {
+  color: #615538;
+  font-size: 60px;
+  font-weight: 400;
+  padding-top: 0;
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  bottom: 10px;
+}
+
+header h2 {
+  color: #b9b02e;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0;
+  position: relative;
+  top: 10px;
+  left: 170px;
+}
+
+nav ul li a.activo{
+    background-color: #dfd796;
+}
+
+footer{
+    background-color: #8b8961;
+    clear: both;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 20px;
+}
+
+.holder{
+    max-width: 960px;
+    margin: 0 auto;
+}
