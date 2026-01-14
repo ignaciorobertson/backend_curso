@@ -1,0 +1,21 @@
+Para mi sitio que corresponde a una bodega, pensé que las secciones dinámicas podrían ser:
+
+_ novedades (como la utilizada en el ejemplo de la clase)
+    Los campos de la base de datos serían:
+        id (INT, NOTNULL, auto increment) (primary key)
+        titulo (VARCHAR 150, NOTNULL)
+        subtitulo (VARCHAR 150, NOTNULL)
+        cuerpo (TEXT, NOTNULL)
+
+_ productos (tabla de productos disponibles, vinos, otros tipos de bebidas, aceites,etc)
+    Campos de la tabla:
+        id (INT, NOTNULL, auto increment) (primary key)
+        tipo_producto_id (INT, NOTNULL) Este campo va a tener el id que va a estar guardado en otra tabla relacionada "tipo_producto"
+        titulo (VARCHAR 150, NOTNULL)
+        descripcion (TEXT, NOTNULL)
+        imagen (BLOB, NOTNULL) Este campo va a guardar la imagen 
+
+        tipos_producto (tabla relacionada con productos podría ser fija, no modificable por el administrador)
+            id (INT, NOTNULL, auto increment) (primary key)
+            nombre (VARCHAR 150, NOTNULL)
+            descripcion (VARCHAR 250, NOTNULL)
