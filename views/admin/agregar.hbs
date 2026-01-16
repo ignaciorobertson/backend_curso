@@ -1,22 +1,29 @@
-<div class="container" style="margin:100px auto">
-    <div class="row">
-        <div class="col-12">
-            <h4>Agregar Novedad</h4>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow" style="width: 100%; max-width: 600px;">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">Agregar Novedad</h4>
             <form action="/admin/novedades/agregar" method="post">
-                <div class="mb-3 row">
-                    <input type="text" class="form-control" placeholder="Título" name="titulo">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo">
                 </div>
-                <div class="mb-3 row">
-                    <textarea type="text" class="form-control" placeholder="Subtítulo" name="subtitulo"></textarea>
+                <div class="mb-3">
+                    <label for="subtitulo" class="form-label">Subtítulo</label>
+                    <textarea class="form-control" id="subtitulo" placeholder="Subtítulo" name="subtitulo" rows="3"></textarea>
                 </div>
-                <div class="mb-3 row">
-                    <textarea type="text" class="form-control" placeholder="Cuerpo" name="cuerpo"></textarea>
+                <div class="mb-3">
+                    <label for="cuerpo" class="form-label">Cuerpo</label>
+                    <textarea class="form-control" id="cuerpo" placeholder="Cuerpo" name="cuerpo" rows="5"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
             </form>
+            {{#if error}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    {{message}}
+                </div>
+            {{/if}}
         </div>
-    </div>    
-    {{#if error}}
-        <h5>{{message}}</h5>
-    {{/if}}
+    </div>
 </div>
