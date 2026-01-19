@@ -1,0 +1,37 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow" style="width: 100%; max-width: 600px;">
+        <div class="card-body">
+            <h4 class="card-title text-center mb-4">Modificar Novedad</h4>
+
+            <form action="/admin/novedades/modificar" method="post">
+
+                <input type="hidden" name="id" value="{{novedad.id}}">
+
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Título" name="titulo" value="{{novedad.titulo}}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="subtitulo" class="form-label">Subtítulo</label>
+                    <textarea class="form-control" id="subtitulo" placeholder="Subtítulo" name="subtitulo" rows="3">{{novedad.subtitulo}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="cuerpo" class="form-label">Cuerpo</label>
+                    <textarea class="form-control" id="cuerpo" placeholder="Cuerpo" name="cuerpo" rows="5">{{novedad.cuerpo}}</textarea>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+
+            </form>
+            {{#if error}}
+                <div class="alert alert-danger mt-3" role="alert">
+                    {{message}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
