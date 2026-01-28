@@ -37,8 +37,8 @@ router.post('/', async (req, res, next) => {
       });
     }
   } catch (error) {
-    console.log(error);
-    console.log("error en el login");
+    // console.log(error);
+    // console.log("error en el login");
   }
 });
 module.exports = router;

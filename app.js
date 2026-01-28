@@ -7,6 +7,9 @@ var logger = require('morgan');
 require('dotenv').config();
 var session = require('express-session');
 
+var cors = require('cors');
+var apiRouter = require('./routes/api');
+var fileUpload = require('express-fileupload');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login')
@@ -20,7 +23,8 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use('/api', cors(), apiRouter);
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,16 +34,21 @@ app.use(session({
   saveUninitialized: true
 }));
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
+
 secured = async (req, res, next) => {
   try {
-    console.log(req.session.id_usuario);
+    // console.log(req.session.id_usuario);
     if (req.session.id_usuario) {
       next();
     } else {
       res.redirect('/admin/login');
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -47,6 +56,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin/login', loginRouter);
 app.use('/admin/novedades', secured, adminRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

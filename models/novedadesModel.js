@@ -12,7 +12,7 @@ async function insertNovedad(obj) {
         var rows = await pool.query(query, [obj]);
         return rows;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         throw error;
     }
 }
@@ -35,7 +35,7 @@ async function modificarNovedadById(obj, id) {
         var rows = await pool.query(query, [obj, id]);
         return rows;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         throw error;
     }
 }
